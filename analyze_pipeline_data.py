@@ -12,7 +12,7 @@ def download_pipeline_data(url):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument("--re-download-pipeline-data", action="store_true", default=False)
+    parser.add_argument("--re-download-pipeline-test_data", action="store_true", default=False)
     args = parser.parse_args()
     quarter_data = get_pipline_data_by_quarter(force_pipeline_data_download=args.re_download_pipeline_data)
 
@@ -20,7 +20,7 @@ def main():
 def get_pipline_data_by_quarter(force_pipeline_data_download):
     pipeline_data_path = "data/pipeline_data_by_quarter.json"
     if not os.path.exists(pipeline_data_path) or force_pipeline_data_download:
-        with open("data/dataset_search_results/dataset_links.txt") as f:
+        with open("data/dataset_links.txt") as f:
             reader = csv.DictReader(f, delimiter="\t")
             rows = {(row["year"], row["quarter"]): row for row in reader}
 
