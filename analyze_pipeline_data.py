@@ -1,8 +1,9 @@
-import requests
 import csv
 import json
 import os
 from argparse import ArgumentParser
+
+import requests
 
 
 def download_pipeline_data(url):
